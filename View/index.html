@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAIR_MVC</title>
+    <link rel="stylesheet" href="../css/theme.css">
+    <script src="https://kit.fontawesome.com/0b6d538c32.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <header id="menuContainer"></header>
+    <section class="search-bar">
+        <div class="map">
+            <div class="search-container">
+                <div class="location-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <input class="city" type="search" placeholder="Rechercher" name="search" />
+                <button type="button" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <input type="search" placeholder="Rechercher une localisation">
+        </div>
+    </div>
+
+    <main>
+        <section class="accommodation-section">
+            <div class="bloc1">
+                <div class="border-picture">
+                    <a href="../assets/img1.jpg"><img src="../assets/img1.jpg"></a>
+                    <div class="text-picture">
+                        <h3>Awaley Beauty</h3>
+                        <p>Homme <strong>60€</strong></p>
+                        <p>Femme <strong>90€</strong></p>
+                        <p>Enfant <strong>30€</strong></p>
+                        <div class="star">
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorgrey"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-picture">
+                    <a href="../assets/img2.jpg"><img src="../assets/img2.jpg"></a>
+                    <div class="text-picture">
+                        <h3>Guepratte Beauty</h3>
+                        <p>Homme <strong>80€</strong></p>
+                        <p>Femme <strong>110€</strong></p>
+                        <p>Enfant <strong>50€</strong></p>
+                        <div class="star">
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorgrey"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-picture">
+                    <a href="../assets/img5.jpg"><img src="../assets/img5.jpg"></a>
+                    <div class="text-picture">
+                        <h3>Paul Beauty</h3>
+                        <p>Homme <strong>80€</strong></p>
+                        <p>Femme <strong>150€</strong></p>
+                        <p>Enfant <strong>60€</strong></p>
+                        <div class="star">
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorgrey"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-picture">
+                    <a href="../assets/img8.jpg"><img src="../assets/img8.jpg"></a>
+                    <div class="text-picture">
+                        <h3>La bauté au rendez-vous</h3>
+                        <p>Homme <strong>40€</strong></p>
+                        <p>Femme <strong>50€</strong></p>
+                        <p>Enfant <strong>20€</strong></p>
+                        <div class="star">
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorblue"></i>
+                            <i class="fas fa-star colorgrey"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="chart">
+                    <div id="map"></div>
+        </section>
+    </main>
+    
+    <footer id="footer"></footer>
+    <script type="module" src="../js/menu.js"></script>
+    <script type="module" src="../js/footer.js"></script>
+    <script src="../js/map.js"></script>
+    <script src="../js/modal.js"></script>
+</body>
+</html>
