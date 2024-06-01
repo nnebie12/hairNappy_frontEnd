@@ -18,10 +18,18 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         formObject[key] = value;
     });
 
+    if (formObject.password !== formObject.verifyPassword) {
+        alert("Les mots de passe ne correspondent pas");
+        return;
+    }
+
+    delete formObject.verifyPassword;
+
     fetch('http://localhost:8000/api/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            
         },
         body: JSON.stringify(formObject),
     })
@@ -33,12 +41,14 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     })
     .then(data => {
         if (data.status === 'User created!') {
+            localStorage.setItem('token', data.token);
             alert('Inscription réussie!');
         } else {
-            alert('Erreur lors de l\'inscription: ' + (data.error || ''));
+            alert('Erreur lors de l\'inscription: ' + (data.errors || ''));
         }
     })
     .catch(error => {
-        alert('Erreur lors de l\'inscription: ' + error.message);
+        console.error('Error:', error);
     });
 });
+
