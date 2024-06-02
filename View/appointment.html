@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+    <header id="menuContainer"></header>
+
+    <h1>Prendre un Rendez-vous</h1>
+    <form id="appointment-form">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Numéro de Téléphone :</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="date">Date :</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Heure :</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="message">Message :</label>
+        <textarea id="message" name="message"></textarea>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <div id="confirmation" style="display: none;">
+        <h2>Rendez-vous confirmé !</h2>
+        <p>Merci de nous avoir contactés. Nous vous confirmerons votre rendez-vous bientôt.</p>
+    </div>
+
+    <footer id="footer"></footer>
+
+    <script type="module" src="../js/appointment.js"></script>
+    <script type="module" src="../js/menu.js"></script>
+    <script type="module" src="../js/footer.js"></script>
+</body>
+</html>

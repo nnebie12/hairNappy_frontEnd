@@ -10,8 +10,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     fetch('http://localhost:8000/api/login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(formObject),
     })
@@ -23,11 +22,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     })
     .then(data => {
         if (data.status === 'success') {
-            // Stocker le token JWT dans le localStorage
             localStorage.setItem('token', data.token);
             alert('Connexion réussie!');
-            // Rediriger vers une page protégée ou un tableau de bord
-            window.location.href = '/dashboard';
+            window.location.href = '../View/index.html';
         } else {
             alert('Erreur de connexion: ' + (data.error || ''));
         }
