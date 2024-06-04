@@ -29,7 +29,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            
         },
         body: JSON.stringify(formObject),
     })
@@ -42,7 +41,10 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     .then(data => {
         if (data.status === 'User created!') {
             localStorage.setItem('token', data.token);
-            alert('Inscription réussie!');
+            alert('Inscription réussie! Veuillez vous connecter ici.');
+            window.setTimeout(() => {
+                window.location.href = '../View/login.html';
+            }, 3000); 
         } else {
             alert('Erreur lors de l\'inscription: ' + (data.errors || ''));
         }
@@ -51,4 +53,3 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         console.error('Error:', error);
     });
 });
-

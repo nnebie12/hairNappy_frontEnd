@@ -10,7 +10,8 @@ body {
     box-sizing: border-box;
     letter-spacing: .1rem;
     line-height: 1.6;
-    background-color: pink;
+    background: linear-gradient(rgba(0,0,0, .4),
+    transparent), url('../assets/coiffure-africaine-1.jpg') /*center center no-repeat*/
 }
 
 header {
@@ -25,8 +26,8 @@ header {
 }
 
 h1{
-    color: #000000;
+    color: #94f7e6;
     margin: 0;
-    
+    flex: 1;
 }
 
