@@ -30,16 +30,27 @@ document.getElementById('appointment-form').addEventListener('submit', function(
         },
         body: JSON.stringify(formObject)
     })
-    .then(response => response.json())
+    .then(response => response.text().then(text => {
+        const jsonStart = text.indexOf('{');
+        const jsonEnd = text.lastIndexOf('}') + 1;
+        const jsonResponse = text.substring(jsonStart, jsonEnd);
+        try {
+            return JSON.parse(jsonResponse);
+        } catch (error) {
+            throw new Error('Invalid JSON: ' + jsonResponse);
+        }
+    }))
     .then(data => {
         if (data.status === 'success') {
             document.getElementById('appointment-form').style.display = 'none';
             document.getElementById('confirmation').style.display = 'block';
+            alert('Le rendez-vous a été pris, vous recevrez la confirmation par SMS.');
         } else {
             alert('Une erreur est survenue : ' + data.message);
         }
     })
     .catch(error => {
         console.error('Erreur:', error);
+        alert('Une erreur est survenue : ' + error.message);
     });
 });

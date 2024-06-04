@@ -11,78 +11,19 @@
 <body>
     <header id="menuContainer"></header>
     <h1>Mon Compte</h1>
-    <form id="account-form">
-        <div class="form-group">
-            <label for="type">Je suis :</label>
-            <select id="type" name="type" onchange="toggleForm()">
-                <option value="client">Client</option>
-                <option value="professionnel">Professionnel</option>
-            </select>
+    <div id="user-info">
+        <p><strong>Nom :</strong> <span id="nom"></span></p>
+        <p><strong>Prénom :</strong> <span id="prenom"></span></p>
+        <p><strong>Ville :</strong> <span id="ville"></span></p>
+        <p><strong>Pays :</strong> <span id="pays"></span></p>
+        <p><strong>Code Postal :</strong> <span id="codePostale"></span></p>
+        <p><strong>Email :</strong> <span id="email"></span></p>
+        <p><strong>Numéro de Téléphone :</strong> <span id="numeroDeTelephone"></span></p>
+        <div id="proFields" style="display:none;">
+            <p><strong>Nom de l'entreprise :</strong> <span id="entreprise"></span></p>
+            <p><strong>Numéro SIRET :</strong> <span id="siret"></span></p>
         </div>
-        <div class="form-group">
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
-        </div>
-        <div class="form-group">
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required>
-        </div>
-        <div class="form-group">
-            <label for="ville">Ville</label>
-                <select id="ville" name="ville">
-                    <option placeholder="ville"></option>
-                    <option> Paris </option>
-                    <option> Abidjan </option>
-                    <option> Rome </option>
-                    <option> Lyon </option>
-                    <option> Brest </option>
-                    <option> Rennes </option>
-                    <option> Yamoussoukro </option>
-                </select>
-        </div>
-        <div class="form-group">
-            <label for="pays">Pays</label>
-                <select id="pays" name="pays" required>
-                    <option value="pays"></option>
-                    <option> France </option>
-                    <option> Côte d'Ivoire </option>
-                    <option> Italie </option>
-                    <option> Ghana </option>
-                    <option> Canada </option>
-                    <option> Pologne </option>
-                    <option> Mali </option>
-                </select>
-        </div>
-        <div class="form-group">
-            <label for="codePostale">Code Postal :</label>
-            <input type="text" id="codePostale" name="codePostale" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <label for="verifyPassword">Confirmez le mot de passe :</label>
-            <input type="password" id="verifyPassword" name="verifyPassword" required>
-        </div>
-        <div class="form-group" id="proFields" style="display:none;">
-            <label for="entreprise">Nom de l'entreprise :</label>
-            <input type="text" id="entreprise" name="entreprise">
-            <label for="siret">Numéro SIRET :</label>
-            <input type="text" id="siret" name="siret">
-        </div>
-        <div class="form-group">
-            <label for="numeroDeTelephone">Numéro de Téléphone :</label>
-            <input type="text" id="numeroDeTelephone" name="numeroDeTelephone" required>
-        </div>
-
-        <button type="submit">Mettre à jour</button>
-    </form>
-
+    </div>
     <button id="delete-account">Supprimer le compte</button>
 
     <footer id="footer"></footer>
