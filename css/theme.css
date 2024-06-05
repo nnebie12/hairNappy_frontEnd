@@ -179,7 +179,7 @@ input[type="submit"]:hover {
 
 a {
     text-decoration: none;
-    color: #007bff;
+    color: red;
 }
 
 a:hover {
@@ -192,13 +192,24 @@ a:hover {
 }
 
 .radio-group label {
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     margin-right: 10px;
 }
 
 .radio-group label input {
     margin-right: 4px;
 }
+
+/*.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+}*/
+
 
 /*----------------main---------------------------------*/
 
@@ -233,7 +244,7 @@ main {
 .accommodation-section .border-picture {
     width: 300px;
     height: auto;
-    background: white;
+    background: #FFD700;
     margin-bottom: 20px;
     border-radius: 20px 20px 20px 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.062);
@@ -278,20 +289,6 @@ main {
     align-items: center;
 }
 
-#map {
-    border: 2px solid white;
-    border-radius: 20px;
-    background-color: white;
-    height: 90%;
-    width: 90%;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.062);
-    transition: 0.8s;
-}
-
-#map:hover {
-    transform: scale(1.07);
-}
-
 /*-------------------------------------Appointment-------------------------------------------------*/
 
 input, textarea {
@@ -313,7 +310,7 @@ input, textarea {
 
 .bloc-footer {
     width: 100%;
-    background: #F2F2F2;
+    background: #FFD700;
     height: 190px;
     display: flex;
     margin-left: 0;
@@ -333,4 +330,62 @@ footer h4 {
 footer a {
     line-height: 30px;
     color: rgb(59, 59, 59);
+}
+
+/*------------Media Queries for Responsive Design------------------ */
+@media screen and (max-width: 1200px) {
+    .bloc1 {
+        justify-content: center;
+    }
+    
+    .accommodation-section .border-picture {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .radio-group label {
+        margin-bottom: 0.5rem;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .accommodation-section .border-picture {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .search-container .city {
+        width: 100%;
+    }
+
+    /*nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }*/
+
+    header, footer {
+        text-align: left;
+    }
+
+    button, input[type="submit"] {
+        width: 100%;
+        padding: 0.75rem;
+    }
 }
