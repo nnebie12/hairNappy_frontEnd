@@ -17,7 +17,7 @@ body {
 header {
     display: flex;
     color: white;
-    margin: 10px;
+    padding: 10px;
 }
 
 .section {
@@ -26,8 +26,8 @@ header {
 }
 
 h1{
-    color: #94f7e6;
-    margin: 0;
+    color: #FFBA49;
+    /*margin: 0;*/
     flex: 1;
 }
 

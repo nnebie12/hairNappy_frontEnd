@@ -5,3 +5,4 @@ window.addEventListener('DOMContentLoaded', function () {
         document.getElementById('menuContainer').innerHTML = data;
     });
 });
+  
