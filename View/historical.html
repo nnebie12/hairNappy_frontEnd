@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique des Rendez-vous</title>
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+    <header id="menuContainer"></header>
+    <div class="container">
+        <h1>Mon Historique des Rendez-vous</h1>
+        <div id="appointments"></div>
+    </div>
+    <footer id="footer"></footer>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Modifier le Rendez-vous</h1>
+            <form id="editForm">
+                <label for="editDate">Date :</label>
+                <input type="date" id="editDate" required>
+                <label for="editHeure">Heure :</label>
+                <input type="time" id="editHeure" required>
+                <label for="editMessage">Message :</label>
+                <textarea id="editMessage" required></textarea>
+                <input type="submit" value="Enregistrer" >
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/historical.js"></script>
+    <script type="module" src="../js/menu.js"></script>
+    <script type="module" src="../js/footer.js"></script>
+</body>
+</html>

@@ -1,10 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        alert('Vous devez être connecté pour prendre un rendez-vous.');
-        window.location.href = '../View/login.html';
-    }
-});
 
 document.getElementById('appointment-form').addEventListener('submit', function(event) {
     event.preventDefault();

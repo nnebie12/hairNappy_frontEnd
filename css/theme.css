@@ -5,7 +5,31 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+}
+
+.toggle{
+    display: none;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 500px;
+    text-align: left;
+}
+
+.menu li {
+    position: relative;
+    padding: 8px 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.menu li a, .auth li a {
+    color:#fff;
+    text-decoration: none;
 }
 
 nav ul {
@@ -20,13 +44,14 @@ nav ul li {
     margin-right: 10px;
 }
 
-nav ul li a {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #FFFFFF;
+
+
+.auth li a{
+    flex: 1;
     font-size: 16px;
     font-weight: bold;
 }
+
 
 .search-container {
     position: relative;
@@ -86,45 +111,6 @@ nav ul li a {
     border-radius: 5px;
 }
 
-#map {
-    height: 400px; 
-    width: 100%; 
-}
-
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .container {
     max-width: 600px;
     margin: 2rem auto;
@@ -137,6 +123,9 @@ nav ul li a {
 }
 
 #menuContainer{
+    position: relative;
+    left: 0;
+    top: 0;
     backdrop-filter: blur(5px);
     width: 100%;
 }
@@ -228,6 +217,40 @@ a:hover {
     
 }
 
+
+/*----------------historical---------------------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+    backdrop-filter: blur(5px);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px ;
+    width: 80%;
+    max-width: 500px;
+}
+.close {
+    color: #FFBA49;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /*----------------main---------------------------------*/
 
@@ -365,6 +388,53 @@ footer a {
 }
 
 @media screen and (max-width: 768px) {
+    .toggle{
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 20;
+        position: relative;
+    }
+
+    .ouvrir{
+        display: none;
+    }
+
+    .fermer{
+        display: block;
+    }
+
+    .open .ouvrir{
+        display: block;
+    }
+
+    .open .fermer{
+        display: none;
+    }
+
+    .menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        background-color: #FFBA49;
+        line-height: 30px;
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        justify-content: space-around;
+        transform: translate(-100%);
+    }
+
+    .open .menu{
+        transform: translate(0);
+    }
+    /*.nav ul{
+        display: block;
+        text-align: left;
+    }
+*/
 
     .container {
         padding: 1rem;
@@ -385,26 +455,41 @@ footer a {
     .accommodation-section .border-picture {
         width: 100%;
     }
+
+    .bloc-footer {
+        height: auto;
+        width: 110%;
+    }
+
+    footer ul {
+        margin-bottom: 10px;
+    }
 }
 
 @media screen and (max-width: 576px) {
+    /*nav ul {
+        display: none;
+    }
+
+    .navbar ul li {
+        display: block;
+    }
+
+    nav .fa-solid {
+        display: block;
+        color: #fff;
+        font-size: 25px;
+        margin: 10px 20px;
+        cursor: pointer;
+    }
+
+    .navbar {
+        position: fixed;
+    }*/
+
     .search-container .city {
         width: 100%;
     }
-
-    /*nav ul {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    nav ul li {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }*/
-
-    /*header, footer {
-        text-align: left;
-    }*/
 
     button, input[type="submit"] {
         width: 100%;
@@ -412,6 +497,10 @@ footer a {
     }
 
     ul li a{
-        font-size: 10px;
+        font-size: 11px;
+    }
+
+    .bloc-footer ul {
+        margin-bottom: 10px;
     }
 }
