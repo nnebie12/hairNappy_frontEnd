@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('email').innerText = data.email;
         document.getElementById('numeroDeTelephone').innerText = data.numeroDeTelephone;
 
-        if (data.isProfessional) {
+        if (data.entreprise) {
             document.getElementById('proFields').style.display = 'block';
             document.getElementById('entreprise').innerText = data.entreprise;
             document.getElementById('siret').innerText = data.siret;

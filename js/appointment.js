@@ -1,3 +1,27 @@
+function showModal(message, callback) {
+    const modal = document.getElementById('successModal');
+    const modalMessage = document.getElementById('modalMessage');
+    const closeButton = document.querySelector('.close-button');
+
+    modalMessage.textContent = message;
+    modal.style.display = 'block';
+
+    closeButton.onclick = function() {
+        modal.style.display = 'none';
+        if (callback) {
+            callback();
+        }
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            if (callback) {
+                callback();
+            }
+        }
+    }
+}
 
 document.getElementById('appointment-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -27,23 +51,18 @@ document.getElementById('appointment-form').addEventListener('submit', function(
         const jsonStart = text.indexOf('{');
         const jsonEnd = text.lastIndexOf('}') + 1;
         const jsonResponse = text.substring(jsonStart, jsonEnd);
-        try {
-            return JSON.parse(jsonResponse);
-        } catch (error) {
-            throw new Error('Invalid JSON: ' + jsonResponse);
-        }
+        return JSON.parse(jsonResponse);
     }))
     .then(data => {
         if (data.status === 'success') {
             document.getElementById('appointment-form').style.display = 'none';
             document.getElementById('confirmation').style.display = 'block';
-            alert('Le rendez-vous a été pris, vous recevrez la confirmation par SMS.');
+            showModal('Le rendez-vous a été pris, vous recevrez la confirmation par SMS.');
         } else {
             alert('Une erreur est survenue : ' + data.message);
         }
     })
     .catch(error => {
-        console.error('Erreur:', error);
         alert('Une erreur est survenue : ' + error.message);
     });
 });

@@ -1,26 +1,36 @@
-function toggleForm() {
-    var type = document.getElementById('type').value;
-    var proFields = document.getElementById('proFields');
+function showModal(message, callback) {
+    const modal = document.getElementById('successModal');
+    const modalMessage = document.getElementById('modalMessage');
+    const closeButton = document.querySelector('.close-button');
 
-    if (type === 'professionnel') {
-        proFields.style.display = 'block';
-    } else {
-        proFields.style.display = 'none';
+    modalMessage.textContent = message;
+    modal.style.display = 'block';
+
+    closeButton.onclick = function() {
+        modal.style.display = 'none';
+        if (callback) {
+            callback();
+        }
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            if (callback) {
+                callback();
+            }
+        }
     }
 }
 
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    console.log('Form submission triggered');
-
     const formData = new FormData(event.target);
     const formObject = {};
     formData.forEach((value, key) => {
         formObject[key] = value;
     });
-
-    console.log('Form data:', formObject);
 
     if (formObject.password !== formObject.verifyPassword) {
         alert("Les mots de passe ne correspondent pas");
@@ -36,37 +46,34 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         },
         body: JSON.stringify(formObject),
     })
-    .then(response => {
-        console.log('Response received', response);
-        return response.text().then(text => {
-            console.log('Response text:', text);
-            // Extract the JSON part from the response
-            const jsonStart = text.indexOf('{');
-            const jsonEnd = text.lastIndexOf('}') + 1;
-            const jsonResponse = text.substring(jsonStart, jsonEnd);
-            try {
-                return JSON.parse(jsonResponse);
-            } catch (error) {
-                throw new Error('Invalid JSON: ' + jsonResponse);
-            }
-        });
-    })
+    .then(response => response.text().then(text => {
+        const jsonStart = text.indexOf('{');
+        const jsonEnd = text.lastIndexOf('}') + 1;
+        const jsonResponse = text.substring(jsonStart, jsonEnd);
+        return JSON.parse(jsonResponse);
+    }))
     .then(data => {
-        console.log('Response data:', data);
         if (data.status === 'User created!') {
             localStorage.setItem('token', data.token);
-            alert('Inscription réussie! Veuillez vous connecter ici.');
-            console.log('Redirection in 3 seconds:', setTimeout);
-            window.setTimeout(() => {
+            showModal('Inscription réussie! Veuillez vous connecter ici.', () => {
                 window.location.href = '../View/login.html';
-            }, 3000);
+            });
         } else {
-            console.log('Error data:', data);
             alert('Erreur lors de l\'inscription: ' + (data.errors || ''));
         }
     })
     .catch(error => {
-        console.error('Error:', error);
         alert('Erreur lors de l\'inscription: ' + error.message);
     });
 });
+
+function toggleForm() {
+    var type = document.getElementById('type').value;
+    var proFields = document.getElementById('proFields');
+
+    if (type === 'professionnel') {
+        proFields.style.display = 'block';
+    } else {
+        proFields.style.display = 'none';
+    }
+}
