@@ -1,27 +1,10 @@
-function showModal(message, callback) {
-    const modal = document.getElementById('successModal');
-    const modalMessage = document.getElementById('modalMessage');
-    const closeButton = document.querySelector('.close-button');
-
-    modalMessage.textContent = message;
-    modal.style.display = 'block';
-
-    closeButton.onclick = function() {
-        modal.style.display = 'none';
-        if (callback) {
-            callback();
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    const token = localStorage.getItem('token');
+    if (token) {
+        window.location.href = '../View/index.html';
+        return;
     }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-            if (callback) {
-                callback();
-            }
-        }
-    }
-}
+});
 
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -31,6 +14,16 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     formData.forEach((value, key) => {
         formObject[key] = value;
     });
+
+    if (!validateEmail(formObject.email)) {
+        alert('Adresse email invalide');
+        return;
+    }
+
+    if (!validatePassword(formObject.password)) {
+        alert('Mot de passe invalide. Il doit comporter au moins 8 caractères, une majuscule, une minuscule et un chiffre.');
+        return;
+    }
 
     if (formObject.password !== formObject.verifyPassword) {
         alert("Les mots de passe ne correspondent pas");
@@ -54,7 +47,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     }))
     .then(data => {
         if (data.status === 'User created!') {
-            localStorage.setItem('token', data.token);
             showModal('Inscription réussie! Veuillez vous connecter ici.', () => {
                 window.location.href = '../View/login.html';
             });
@@ -67,13 +59,12 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     });
 });
 
-function toggleForm() {
-    var type = document.getElementById('type').value;
-    var proFields = document.getElementById('proFields');
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
 
-    if (type === 'professionnel') {
-        proFields.style.display = 'block';
-    } else {
-        proFields.style.display = 'none';
-    }
+function validatePassword(password) {
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    return re.test(password);
 }

@@ -12,23 +12,22 @@ body {
     letter-spacing: .1rem;
     line-height: 1.6;
     background: linear-gradient(rgba(0,0,0, .4),
-    transparent), url('../assets/coiffure-africaine-1.jpg') /*center center no-repeat*/
+    transparent), url('../assets/coiffure-africaine-1.jpg'); /*center center no-repeat*/
+    background-size: cover;
+    background-position: center;
 }
 
-header {
-    display: flex;
-    color: white;
-    padding: 10px;
-}
 
-.section {
+
+ .search-bar {
     padding: 3rem 4rem;
     margin-bottom: 2rem;
 }
 
-h1{
-    color: var(--primary-color);
-    margin: 0 0 14px 100px;
-    text-align: center;
+@media screen and (max-width: 576px) {
+   
+    .search-bar {
+        padding: 3px 12px 3px 1px;
+        margin-bottom: auto;
+    }
 }
-

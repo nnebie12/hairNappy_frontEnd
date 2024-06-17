@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('token');
     if (!token) {
-        alert('Vous devez être connecté pour voir votre historique des rendez-vous.');
+        localStorage.removeItem('token')
         window.location.href = '../View/login.html';
         return;
     }
 
-    fetch('http://localhost:8000/api/appointments', {
+    fetch('http://localhost:8000/api/events', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(response => response.json())
     .then(data => {
+        if(data?.code === 401) {
+            alert('Vous devez être connecté pour voir votre historique des rendez-vous.');
+            localStorage.removeItem('token');
+            window.location.href = '../View/login.html';
+            return;
+        }
         const appointmentsDiv = document.getElementById('appointments');
         if (data.length === 0) {
             appointmentsDiv.innerHTML = '<p>Vous n\'avez aucun rendez-vous.</p>';
@@ -54,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('editDate').value = appointment.date;
         document.getElementById('editHeure').value = appointment.heure;
         document.getElementById('editMessage').value = appointment.message;
+        document.getElementById('salonName').innerHTML = appointment.salon;
         modal.style.display = 'block';
     }
 
@@ -74,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const newMessage = document.getElementById('editMessage').value;
 
         if (newDate && newHeure && newMessage) {
-            fetch(`http://localhost:8000/api/appointments/${currentAppointmentId}`, {
+            fetch(`http://localhost:8000/api/events/${currentAppointmentId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -107,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function deleteAppointment(id) {
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:8000/api/appointments/${id}`, {
+    fetch(`http://localhost:8000/api/events/${id}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`,

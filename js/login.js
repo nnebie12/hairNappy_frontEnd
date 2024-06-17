@@ -1,27 +1,10 @@
-function showModal(message, callback) {
-    const modal = document.getElementById('successModal');
-    const modalMessage = document.getElementById('modalMessage');
-    const closeButton = document.querySelector('.close-button');
-
-    modalMessage.textContent = message;
-    modal.style.display = 'block';
-
-    closeButton.onclick = function() {
-        modal.style.display = 'none';
-        if (callback) {
-            callback();
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    const token = localStorage.getItem('token');
+    if (token) {
+        window.location.href = '../View/index.html';
+        return;
     }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-            if (callback) {
-                callback();
-            }
-        }
-    }
-}
+});
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -32,6 +15,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         formObject[key] = value;
     });
 
+    if (!validateEmail(formObject.email)) {
+        alert('Adresse email invalide');
+        return;
+    }
+
     fetch('http://localhost:8000/api/login', {
         method: 'POST',
         headers: {
@@ -39,12 +27,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         },
         body: JSON.stringify(formObject),
     })
-    .then(response => response.text().then(text => {
-        const jsonStart = text.indexOf('{');
-        const jsonEnd = text.lastIndexOf('}') + 1;
-        const jsonResponse = text.substring(jsonStart, jsonEnd);
-        return JSON.parse(jsonResponse);
-    }))
+    .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
             localStorage.setItem('token', data.token);
@@ -52,10 +35,20 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
                 window.location.href = '../View/index.html';
             });
         } else {
-            alert('Erreur de connexion: ' + (data.error || ''));
+            alert('Erreur de connexion: ' + (data.message || ''));
         }
     })
     .catch(error => {
         alert('Erreur lors de la connexion: ' + error.message);
     });
 });
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePassword(password) {
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    return re.test(password);
+}

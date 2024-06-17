@@ -8,6 +8,7 @@
 </head>
 <body>
     <header id="menuContainer"></header>
+
     <div class="container">
         <h1>Mon Historique des Rendez-vous</h1>
         <div id="appointments"></div>
@@ -19,6 +20,8 @@
             <span class="close">&times;</span>
             <h2>Modifier le Rendez-vous</h2>
             <form id="editForm">
+                <label>Salon :</label>
+                <span id="salonName"></span>
                 <label for="editDate">Date :</label>
                 <input type="date" id="editDate" required>
                 <label for="editHeure">Heure :</label>

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="../css/theme.css">
-    
 </head>
 <body>
     <header id="menuContainer"></header>
@@ -22,14 +21,19 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="text" id="password" name="password" placeholder="mot de passe" required>
+                    <input type="password" id="password" name="password" placeholder="mot de passe" required>
                 </div>
+                <p>Vous n'avez pas encore de compte? <a href="./signup.html">Inscrivez-vous</a></p>
     
                 <input type="submit" value="Se connecter">
             </form>
         </div>
     </section>
     <footer id="footer"></footer>
+
+    <div id="loader" class="loader" style="display: none;">
+        <div class="spinner"></div>
+    </div>
 
     <div id="successModal" class="modal-item">
         <div class="modal-content-item">
@@ -41,5 +45,6 @@
     <script type="module" src="../js/menu.js"></script>
     <script type="module" src="../js/footer.js"></script>
     <script type="module" src="../js/login.js"></script>
+    <script src="../js/loader.js"></script>
 </body>
 </html>

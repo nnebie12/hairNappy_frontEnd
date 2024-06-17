@@ -1,0 +1,221 @@
+/*------------Media Queries for Responsive Design------------------ */
+@media screen and (max-width: 1200px) {
+   
+    .container {
+        height: auto;
+        margin: auto;
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    input, textarea {
+        padding: 5px;
+        margin-top: 25px;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        padding: 8px;
+    }
+
+    input[type="submit"] {
+        padding: 8px;
+        margin: 10px;
+    }
+
+    .radio-group input[type="radio"] {
+        margin-top: 10px;
+    }
+
+    .bloc1 {
+        grid-template-columns: repeat(1, 2fr);
+    }
+    
+    .accommodation-section .border-picture {
+        margin: 20px;    
+    }
+    
+    main{
+        display: block;
+    }
+
+    .bloc-footer {
+        height: 800px;
+        width: auto;
+        margin: 10px 0;
+    }
+
+    .section-footer {
+        flex: 1;
+        margin-left: 90px;
+    }
+    
+    footer h4 {
+        font-size: 1.5rem;
+    }
+
+    footer ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+    footer ul li {
+        margin: 10px 0;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links ul {
+        display: block;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .search-container .city {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        padding-left: 40px; 
+    }
+
+    .search-container .search-icon {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .radio-group label {
+        margin-bottom: 0.5rem;
+    }
+
+    .container {
+        margin-top: 25px;
+        padding-bottom: 90px;
+        height: 300px;
+    }
+
+    .container-signup {
+        margin-top: 25px;
+        padding-bottom: 90px;
+        height: auto;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .accommodation-section .border-picture {
+        width: 100%;
+    }
+
+    .bloc-footer {
+        height: auto;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    footer h4 {
+        font-size: 1.5rem;
+    }
+
+    footer ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+    footer ul li {
+        margin: 10px 0;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .nav-links ul li {
+        margin: 0 10px;
+    }
+
+    main {
+        display: block;
+        margin: 0 ;
+    }
+
+    .accommodation-section{
+        width: auto;
+    }
+
+    .search-container {
+        width: 100%;
+        padding: 10px;
+    }
+    nav h1 {
+        margin: left;
+    }
+
+    .search-container .city {
+        width: calc(100% - 20px); 
+        padding: 10px;
+        margin-bottom: 10px;
+        padding-left: 40px; 
+    }
+
+    .search-container .search-icon {
+        right: 30px;
+    }
+
+    button, input[type="submit"] {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    ul li a{
+        font-size: 13px;
+    }
+
+    .bloc-footer {
+        height: auto;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    footer h4 {
+        font-size: 1.5rem;
+    }
+
+    footer ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+    footer ul li {
+        margin: 10px 0;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+}

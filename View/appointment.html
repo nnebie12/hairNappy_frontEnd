@@ -8,37 +8,36 @@
     <link rel="stylesheet" href="../css/theme.css">
 </head>
 <body>
-    <header>
-        <div id="menuContainer"></div>
-    </header>
+    <header id="menuContainer"></header>
     <div class="container">
-        <h1>Prendre un Rendez-vous</h1>
-    <form id="appointment-form">
-        <div class="form-group">
-            <label for="date">Date :</label>
-        <input type="date" id="date" name="date" required>
+        <h1 id="form-title">Prendre un Rendez-vous chez <span id="detail-name"></span></h1>
+        <img id="detail-picture"/>
+        <form id="appointment-form">
+            <div class="form-group">
+                <label for="date">Date :</label>
+            <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Heure :</label>
+                <input type="time" id="heure" name="heure" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message :</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <input type="hidden" id="salon" name="salon" required>
+
+            <input type="submit" value="Envoyer">
+        </form>
+
+        <div id="confirmation" style="display: none;">
+            <h2>Rendez-vous confirmé !</h2>
+            <p>Merci de nous avoir contactés. Nous vous confirmerons votre rendez-vous bientôt.</p>
         </div>
-
-        <div class="form-group">
-            <label for="time">Heure :</label>
-            <input type="time" id="time" name="time" required>
-        </div>
-
-        <div class="form-group">
-            <label for="message">Message :</label>
-        <textarea id="message" name="message"></textarea>
-        </div>
-
-        <input type="submit" value="Envoyer">
-    </form>
-
-    <div id="confirmation" style="display: none;">
-        <h2>Rendez-vous confirmé !</h2>
-        <p>Merci de nous avoir contactés. Nous vous confirmerons votre rendez-vous bientôt.</p>
-    </div>
     </div>
     
-
     <footer id="footer"></footer>
 
     <div id="successModal" class="modal-item">
@@ -49,7 +48,7 @@
     </div>
 
     <script type="module" src="../js/appointment.js"></script>
-    <script type="module" src="../js/menu.js"></script>
     <script type="module" src="../js/footer.js"></script>
+    <script type="module" src="../js/menu.js"></script>
 </body>
 </html>

@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAIR_MVC</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">-->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">-->
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/reset.css">
     
@@ -14,7 +12,7 @@
 <body>
     <header id="menuContainer"></header>
     <section>
-        <div class="container">
+        <div class="container-signup">
             <h2>Bienvenue sur NappyHair</h2>
             <form id="registrationForm">
                 <div class="form-group">
@@ -36,11 +34,11 @@
                     <label for="ville">Ville</label>
                         <select id="ville" name="ville">
                             <option placeholder="ville"></option>
-                            <option> Paris </option>
                             <option> Abidjan </option>
-                            <option> Rome </option>
-                            <option> Lyon </option>
                             <option> Brest </option>
+                            <option> Lyon </option>
+                            <option> Paris </option>
+                            <option> Rome </option>
                             <option> Rennes </option>
                             <option> Yamoussoukro </option>
                         </select>
@@ -49,13 +47,13 @@
                     <label for="pays">Pays</label>
                         <select id="pays" name="pays" required>
                             <option value="pays"></option>
-                            <option> France </option>
                             <option> Côte d'Ivoire </option>
-                            <option> Italie </option>
-                            <option> Ghana </option>
                             <option> Canada </option>
-                            <option> Pologne </option>
+                            <option> France </option>
+                            <option> Ghana </option>
+                            <option> Italie </option>
                             <option> Mali </option>
+                            <option> Pologne </option>
                         </select>
                 </div>
                 <div class="form-group">
@@ -91,18 +89,9 @@
                     <label><input type="radio" name="genre" value="autre" required> Autre</label>
                 </div>
 
-                <!--<div class="form-group">
-                    <label  class="checkbox-label">
-                        <input type="checkbox" name="newsletter" value="subscribe">
-                        Je souhaite recevoir des e-mails de la part de Treatwell incluant les dernières offres et hot news beauté. Vous pouvez modifier vos préférences à tout moment. Consultez notre 
-                        <a href="privacy_policy.html" target="_blank">Politique de confidentialité</a>
-                        pour plus d'informations.
-                    </label>
-                </div>-->
-
                 <div class="form-group">
                     <p>En soumettant ce formulaire vous
-                        acceptez nos <a href="condition.html" target="_blank">Termes et conditions d'utilisation</a>.</p>
+                        acceptez nos <a href="condition.html" target="_blank">termes et conditions d'utilisation</a>.</p>
                     </label>
                 </div>
 
@@ -113,15 +102,20 @@
     </section>
     <footer id="footer"></footer>
 
+    <div id="loader" class="loader" style="display: none;">
+        <div class="spinner"></div>
+    </div>    
+
     <div id="successModal" class="modal-item">
         <div class="modal-content-item">
             <span class="close-button">&times;</span>
             <p id="modalMessage"></p>
         </div>
     </div>
-    
+
     <script  type="module" src="../js/signup.js"></script>
     <script type="module" src="../js/menu.js"></script>
     <script type="module" src="../js/footer.js"></script>
+    <script src="../js/loader.js"></script>
 </body>
 </html>
