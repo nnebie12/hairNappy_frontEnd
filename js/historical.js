@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const list = document.createElement('ul');
             data.forEach(appointment => {
                 const listItem = document.createElement('li');
-                listItem.innerHTML = `Date: ${appointment.date}, Heure: ${appointment.heure}, Message: ${appointment.message} `;
+                listItem.innerHTML = `Salon: ${appointment.salon}, Date: ${appointment.date}, Heure: ${appointment.heure}, Message: ${appointment.message} `;
 
                 const editButton = document.createElement('button');
                 editButton.textContent = 'Modifier';
@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('editDate').value = appointment.date;
         document.getElementById('editHeure').value = appointment.heure;
         document.getElementById('editMessage').value = appointment.message;
-        document.getElementById('salonName').innerHTML = appointment.salon;
         modal.style.display = 'block';
     }
 
