@@ -6,17 +6,16 @@ document.addEventListener('DOMContentLoaded', function() {
         {id:2, name:'Guepratte Beauty', picture:'../assets/img2.jpg'},
         {id:3, name:'Paul Beauty', picture:'../assets/img5.jpg'},
         {id:4, name:'Tity Beauty', picture:'../assets/img8.jpg'}
-    ]
+    ];
     const salon = searchParams.get('salon');
     if (!token) {
-        alert('Vous devez être connecté pour prendre un rendez-vous.');
         localStorage.removeItem('token')
         window.location.href = '../View/login.html';
         return;
     }
     if(!salon || !salons.some((oneSalon) => oneSalon.id == salon)) {
         alert('Vous devez sélectionner un salon pour prendre un rendez-vous.');
-        window.location.href = '../View/index.html';
+        window.location.href = '../index.html';
         return;
     }
     const selectedSalon = salons.find((oneSalon) => oneSalon.id == salon);

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('token');
     if (token) {
-        window.location.href = '../View/index.html';
+        window.location.href = '../index.html';
         return;
     }
 });
@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         if (data.status === 'success') {
             localStorage.setItem('token', data.token);
             showModal('Connexion réussie!', () => {
-                window.location.href = '../View/index.html';
+                window.location.href = '../index.html';
             });
         } else {
             alert('Erreur de connexion: ' + (data.message || ''));
